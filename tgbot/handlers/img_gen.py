@@ -9,17 +9,20 @@ from tgbot.misc.texts import mess, make_mess
 from tgbot.misc.states import makeImg
 from tgbot.misc.generate import generate
 from tgbot.filters.admin import AdminFilter
+from tgbot.config import load_config
 
 img_gen_router = Router()
 img_gen_router.message.filter(AdminFilter())
 
+config = load_config(".env")
+bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
+
 
 @img_gen_router.message(commands=["make"])
 async def user_start(message: Message, state=FSMContext):
-    # await message.reply(make_mess['start'])
-    # await message.answer(make_mess['enter_way'])
-    await generate()
-    # await state.set_state(makeImg.way)
+    await message.reply(make_mess['start'])
+    await message.answer(make_mess['enter_way'])
+    await state.set_state(makeImg.way)
 
 
 @img_gen_router.message(content_types=types.ContentType.TEXT, state=makeImg.way)
@@ -65,7 +68,10 @@ async def user_start(message: Message, state=FSMContext):
 @img_gen_router.message(content_types=types.ContentType.TEXT, state=makeImg.sprice)
 async def user_start(message: Message, state=FSMContext):
     text = message.text.upper()
+    userid = message.from_user.id
     await state.update_data(sprice=text)
     user_data = await state.get_data()
     await state.clear()
     await generate(user_data)
+    photo = FSInputFile('tgbot/img/output.png')
+    await bot.send_photo(userid, photo, )

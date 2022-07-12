@@ -12,16 +12,10 @@ from tgbot.misc.states import makeImg
 from PIL import Image, ImageDraw, ImageFont
 
 
-async def generate():
-    user_data = {
-        'way': 'long',
-        'lavarage': '20x',
-        'currency': 'btcUSD',
-        'profit': '125,01',
-        'fprice': '5,9260',
-        'sprice': '5,9260',
-    }
+async def generate(user_data):
+
     x = user_data['lavarage'].replace("x", "")
+    x = user_data['lavarage'].replace("X", "")
     if float(x) >= 100:
         im = Image.open('tgbot/img/start2.png')
         w = True
