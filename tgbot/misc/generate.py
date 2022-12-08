@@ -87,34 +87,34 @@ async def generate(user_data):
     G8 = Image.open('tgbot/img/8.png')
     G9 = Image.open('tgbot/img/9.png')
 
-    if w == True:
-        Gper = Gper.resize((142, 134))
-        Gcom = Gcom.resize((145, 130))
-        Gplus = Gplus.resize((145, 137))
-        G0 = G0.resize((145, 130))
-        G1 = G1.resize((145, 130))
-        G2 = G2.resize((145, 130))
-        G3 = G3.resize((145, 130))
-        G4 = G4.resize((145, 130))
-        G5 = G5.resize((145, 130))
-        G6 = G6.resize((145, 130))
-        G7 = G7.resize((145, 130))
-        G8 = G8.resize((145, 130))
-        G9 = G9.resize((145, 130))
-    else:
-        Gper = Gper.resize((150, 130))
-        Gcom = Gcom.resize((150, 130))
-        Gplus = Gplus.resize((150, 130))
-        G0 = G0.resize((150, 130))
-        G1 = G1.resize((150, 130))
-        G2 = G2.resize((150, 130))
-        G3 = G3.resize((150, 130))
-        G4 = G4.resize((150, 130))
-        G5 = G5.resize((150, 130))
-        G6 = G6.resize((150, 130))
-        G7 = G7.resize((150, 130))
-        G8 = G8.resize((150, 130))
-        G9 = G9.resize((150, 130))
+    # if w == True:
+    Gper = Gper.resize((142, 129))
+    Gcom = Gcom.resize((145, 131))
+    Gplus = Gplus.resize((145, 137))
+    G0 = G0.resize((145, 132))
+    G1 = G1.resize((145, 130))
+    G2 = G2.resize((145, 133))
+    G3 = G3.resize((145, 130))
+    G4 = G4.resize((145, 131))
+    G5 = G5.resize((145, 131))
+    G6 = G6.resize((145, 130))
+    G7 = G7.resize((145, 130))
+    G8 = G8.resize((145, 130))
+    G9 = G9.resize((145, 131))
+    # else:
+    #     Gper = Gper.resize((150, 130))
+    #     Gcom = Gcom.resize((150, 130))
+    #     Gplus = Gplus.resize((150, 130))
+    #     G0 = G0.resize((150, 130))
+    #     G1 = G1.resize((150, 130))
+    #     G2 = G2.resize((150, 130))
+    #     G3 = G3.resize((150, 130))
+    #     G4 = G4.resize((150, 130))
+    #     G5 = G5.resize((150, 130))
+    #     G6 = G6.resize((150, 130))
+    #     G7 = G7.resize((150, 130))
+    #     G8 = G8.resize((150, 130))
+    #     G9 = G9.resize((150, 130))
 
     Yc = Image.open('tgbot/img/com.png')
     Y0 = Image.open('tgbot/img/00.png')
@@ -143,7 +143,7 @@ async def generate(user_data):
     profit_dist = 179
     for item in user_data['profit']:
         if item == '0':
-            im.paste(G0, (profit_dist, 331), G0)
+            im.paste(G0, (profit_dist, 330), G0)
             profit_dist += 69
         elif item == '1':
             im.paste(G1, (profit_dist, 331), G1)
@@ -152,7 +152,7 @@ async def generate(user_data):
             im.paste(G2, (profit_dist, 331), G2)
             profit_dist += 69
         elif item == '3':
-            im.paste(G3, (profit_dist, 331), G3)
+            im.paste(G3, (profit_dist, 336), G3)
             profit_dist += 69
         elif item == '4':
             im.paste(G4, (profit_dist, 331), G4)
@@ -178,7 +178,7 @@ async def generate(user_data):
         elif item == ' ':
             profit_dist += 32
 
-    im.paste(Gper, (profit_dist + 17, 335), Gper)
+    im.paste(Gper, (profit_dist + 17, 333), Gper)
 
     if w == True:
         price_dist = 537
