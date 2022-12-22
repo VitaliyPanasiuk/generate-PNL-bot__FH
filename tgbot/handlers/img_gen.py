@@ -21,20 +21,20 @@ bot = Bot(token=config.tg_bot.token, parse_mode='HTML')
 
 @img_gen_router.message(commands=["make"])
 async def user_start(message: Message, state=FSMContext):
-    # await message.reply(make_mess['start'])
-    # await message.answer(make_mess['enter_way'])
-    # await state.set_state(makeImg.way)
-    ex_data = {
-        'way': 'long',
-        'lavarage' : '20',
-        'currency' : 'btcusdt',
-        'profit' : '1234567890',
-        'fprice' : '1234567890',
-        'sprice' : '1234567890',
-    }
-    await generate(ex_data)
-    photo = FSInputFile('tgbot/img/output.png')
-    await bot.send_photo(message.from_user.id, photo,)
+    await message.reply(make_mess['start'])
+    await message.answer(make_mess['enter_way'])
+    await state.set_state(makeImg.way)
+    # ex_data = {
+    #     'way': 'long',
+    #     'lavarage' : '10',
+    #     'currency' : 'ethusdt',
+    #     'profit' : '392,30',
+    #     'fprice' : '1 061,18',
+    #     'sprice' : '1 104,51',
+    # }
+    # await generate(ex_data)
+    # photo = FSInputFile('tgbot/img/output.png')
+    # await bot.send_photo(message.from_user.id, photo,)
 
 
 @img_gen_router.message(content_types=types.ContentType.TEXT, state=makeImg.way)
