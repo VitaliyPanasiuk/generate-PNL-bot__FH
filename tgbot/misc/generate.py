@@ -1,14 +1,3 @@
-from locale import currency
-from aiogram import Router, Bot, types
-from aiogram.types import Message, FSInputFile
-from aiogram.dispatcher.filters.content_types import ContentTypesFilter
-
-from aiogram.dispatcher.fsm.context import FSMContext
-from aiogram.dispatcher.fsm.state import State, StatesGroup
-
-from tgbot.misc.texts import mess, make_mess
-from tgbot.misc.states import makeImg
-
 from PIL import Image, ImageDraw, ImageFont
 
 
