@@ -2,7 +2,7 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 
-def generate(user_data):
+async def generate(user_data):
 
     x = user_data['lavarage'].replace("x", "").replace("X", "").replace("х", "").replace("Х", "")
     # x = user_data['lavarage']
@@ -10,10 +10,10 @@ def generate(user_data):
     # x = user_data['lavarage']
     print(x)
     if float(x) >= 100:
-        im = Image.open('start2.png')
+        im = Image.open('tgbot/img/start2.png')
         w = True
     else:
-        im = Image.open('start1.png')
+        im = Image.open('tgbot/img/start1.png')
         w = False
 
     if user_data['way'].lower() == 'long':
@@ -36,7 +36,7 @@ def generate(user_data):
 
     currency = user_data['currency'].upper() + ' ' + 'Perpetual'
 
-    font = ImageFont.truetype('SFUIDisplay-Regular.ttf', size=42)
+    font = ImageFont.truetype('tgbot/img/SFUIDisplay-Regular.ttf', size=42)
     draw_way = ImageDraw.Draw(im)
     draw_way.text(
         (187, 255),
@@ -45,7 +45,7 @@ def generate(user_data):
         fill=way_color)
 
     font = ImageFont.truetype(
-        'Fontspring-DEMO-neuevektor-b-medium.otf', size=42)
+        'tgbot/img/Fontspring-DEMO-neuevektor-b-medium.otf', size=42)
     draw_lev = ImageDraw.Draw(im)
     draw_lev.text(
         (lav_dist, 255),
@@ -53,7 +53,7 @@ def generate(user_data):
         font=font,
         fill='#f8f4f3')
 
-    font = ImageFont.truetype('SFUIText-Semibold.ttf', size=42)
+    font = ImageFont.truetype('tgbot/img/SFUIText-Semibold.ttf', size=42)
     draw_cur = ImageDraw.Draw(im)
     if w == True:
         draw_cur.text(
@@ -77,19 +77,19 @@ def generate(user_data):
                 fill='#f8f4f3')
             start_length += int(font.getsize(i)[0])-3
 
-    Gplus = Image.open('plus.png')
-    Gcom = Image.open('gcom.png')
-    Gper = Image.open('per.png')
-    G0 = Image.open('0.png')
-    G1 = Image.open('1.png')
-    G2 = Image.open('2.png')
-    G3 = Image.open('3.png')
-    G4 = Image.open('4.png')
-    G5 = Image.open('5.png')
-    G6 = Image.open('6.png')
-    G7 = Image.open('7.png')
-    G8 = Image.open('8.png')
-    G9 = Image.open('9.png')
+    Gplus = Image.open('tgbot/img/plus.png')
+    Gcom = Image.open('tgbot/img/gcom.png')
+    Gper = Image.open('tgbot/img/per.png')
+    G0 = Image.open('tgbot/img/0.png')
+    G1 = Image.open('tgbot/img/1.png')
+    G2 = Image.open('tgbot/img/2.png')
+    G3 = Image.open('tgbot/img/3.png')
+    G4 = Image.open('tgbot/img/4.png')
+    G5 = Image.open('tgbot/img/5.png')
+    G6 = Image.open('tgbot/img/6.png')
+    G7 = Image.open('tgbot/img/7.png')
+    G8 = Image.open('tgbot/img/8.png')
+    G9 = Image.open('tgbot/img/9.png')
 
     # if w == True:
     # Gper = Gper.resize((90, 84))
@@ -179,17 +179,17 @@ def generate(user_data):
     # im.paste(Gper, (profit_dist + 37, 354), Gper)
     im.paste(Gper, (profit_dist + 48, 332), Gper)
     
-    Yc = Image.open('com.png')
-    Y0 = Image.open('00.png')
-    Y1 = Image.open('11.png')
-    Y2 = Image.open('22.png')
-    Y3 = Image.open('33.png')
-    Y4 = Image.open('44.png')
-    Y5 = Image.open('55.png')
-    Y6 = Image.open('66.png')
-    Y7 = Image.open('77.png')
-    Y8 = Image.open('88.png')
-    Y9 = Image.open('99.png')
+    Yc = Image.open('tgbot/img/com.png')
+    Y0 = Image.open('tgbot/img/00.png')
+    Y1 = Image.open('tgbot/img/11.png')
+    Y2 = Image.open('tgbot/img/22.png')
+    Y3 = Image.open('tgbot/img/33.png')
+    Y4 = Image.open('tgbot/img/44.png')
+    Y5 = Image.open('tgbot/img/55.png')
+    Y6 = Image.open('tgbot/img/66.png')
+    Y7 = Image.open('tgbot/img/77.png')
+    Y8 = Image.open('tgbot/img/88.png')
+    Y9 = Image.open('tgbot/img/99.png')
     Yc = Yc.resize((46, 44))
     Y0 = Y0.resize((46, 44))
     Y1 = Y1.resize((46, 44))
@@ -285,4 +285,4 @@ def generate(user_data):
         elif item == ' ':
             price_dist += 14
     im.show()
-    im.save('output.png')
+    im.save('tgbot/img/output.png')
